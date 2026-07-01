@@ -1,0 +1,50 @@
+[project]
+name = "claude-code-watermark-check"
+version = "0.1.0"
+description = "Local health check for Claude Code prompt-watermark indicators."
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [{ name = "Bruce Huang" }]
+dependencies = [
+    "rich>=14.2.0",
+    "typer>=0.20.0",
+]
+
+[project.scripts]
+ccwatermark = "ccwatermark.cli:main"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.38.0",
+    "pytest>=9.0.1",
+    "ruff>=0.14.8",
+]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D107",
+    "S101",
+    "TC003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["PLR2004"]
+
+[tool.basedpyright]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+include = ["src", "tests"]
