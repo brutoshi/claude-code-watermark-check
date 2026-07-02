@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code Watermark Check terminal demo</title>
+  <desc id="desc">Terminal screenshot showing a detected positive fixture scan and a clean negative fixture scan.</desc>
+  <rect width="980" height="520" rx="18" fill="#101418"/>
+  <rect x="24" y="24" width="932" height="472" rx="12" fill="#171d23" stroke="#2b343d"/>
+  <circle cx="52" cy="52" r="7" fill="#ff5f57"/>
+  <circle cx="76" cy="52" r="7" fill="#ffbd2e"/>
+  <circle cx="100" cy="52" r="7" fill="#28c840"/>
+  <text x="130" y="57" fill="#94a3b8" font-family="SFMono-Regular, Consolas, monospace" font-size="14">local fixture scan</text>
+
+  <text x="52" y="104" fill="#8bd5ff" font-family="SFMono-Regular, Consolas, monospace" font-size="17">$ ccwatermark fixtures/positive/minified.js</text>
+  <text x="52" y="142" fill="#ff7b72" font-family="SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">Claude Code watermark health check: detected</text>
+  <text x="52" y="178" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">matched files        1</text>
+  <text x="52" y="206" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">first local version  not found</text>
+  <text x="52" y="234" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">first local mtime    2026-07-01T18:01:26+08:00</text>
+  <text x="52" y="262" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">current env          host=unset; tz=Asia/Hong_Kong, HKT; no trigger hint</text>
+  <text x="52" y="306" fill="#a7f3d0" font-family="SFMono-Regular, Consolas, monospace" font-size="16">Evidence: binary_capability signatures include:</text>
+  <text x="52" y="334" fill="#a7f3d0" font-family="SFMono-Regular, Consolas, monospace" font-size="16">env-anthropic-base-url, china-timezone-pair, today-date-template</text>
+
+  <text x="52" y="386" fill="#8bd5ff" font-family="SFMono-Regular, Consolas, monospace" font-size="17">$ ccwatermark fixtures/negative/plain.js</text>
+  <text x="52" y="424" fill="#7ee787" font-family="SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">Claude Code watermark health check: clean</text>
+  <text x="52" y="460" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">matched files        0</text>
+  <text x="52" y="488" fill="#d1d5db" font-family="SFMono-Regular, Consolas, monospace" font-size="16">No private Claude logs are used in this demo.</text>
+</svg>

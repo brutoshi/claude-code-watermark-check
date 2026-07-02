@@ -1,10 +1,21 @@
 # Claude Code Watermark Check
 
-Check your local Claude Code logs and installation for prompt-watermark
-indicators.
+[![CI](https://github.com/brutoshi/claude-code-watermark-check/actions/workflows/ci.yml/badge.svg)](https://github.com/brutoshi/claude-code-watermark-check/actions/workflows/ci.yml)
+
+Local health check for Claude Code prompt-watermark indicators in logs and
+installed binaries.
 
 This is a local, read-only health check. It does not contact Anthropic, does not
 upload your logs, and does not modify your Claude Code installation.
+
+It is deliberately narrow:
+
+- local logs first;
+- binary capability second;
+- no deobfuscation or source dumping;
+- no claim that local evidence alone proves server-side receipt.
+
+![Terminal demo showing a detected fixture scan and a clean fixture scan](docs/terminal-demo.svg)
 
 ## Why This Exists
 
@@ -66,9 +77,31 @@ The distinction matters. A binary can contain marker logic without proving that
 your logs contain a rendered marker. A rendered prompt marker is stronger local
 evidence of execution.
 
-## Install
+## Install / Release
 
-With `uv`:
+Until a PyPI release is published, run or install the package directly from the
+GitHub repository.
+
+Run once from GitHub with `uvx`:
+
+```bash
+uvx --from git+https://github.com/brutoshi/claude-code-watermark-check.git ccwatermark
+```
+
+Run once from GitHub with `pipx`:
+
+```bash
+pipx run --spec git+https://github.com/brutoshi/claude-code-watermark-check.git ccwatermark
+```
+
+Install as a persistent local command with `pipx`:
+
+```bash
+pipx install git+https://github.com/brutoshi/claude-code-watermark-check.git
+ccwatermark
+```
+
+For local development with `uv`:
 
 ```bash
 uv sync
@@ -115,6 +148,22 @@ Fail CI or device-management checks when markers are detected:
 ```bash
 ccwatermark --fail-on-detected
 ```
+
+## Sharing Results
+
+For public Reddit/X/GitHub discussion, prefer JSON and sanitize it before
+posting:
+
+```bash
+ccwatermark --json
+```
+
+Redact private file paths, project names, gateway hostnames, and any prompt or
+log snippet that contains private data. Do not paste private Claude logs or
+proprietary Claude Code binary content. Short bounded snippets are enough for
+debugging false positives and false negatives.
+
+Copy-ready community replies are in [`COMMUNITY_REPLY.md`](COMMUNITY_REPLY.md).
 
 ## Result Meaning
 
@@ -211,21 +260,22 @@ Claude Code prompt-watermark markers in local logs.
 That makes this project's positioning simple: it is not a log viewer. It is a
 small security health check for one specific class of prompt-level markers.
 
-## Suggested GitHub Repo
+## Share This Project
 
-Recommended repository name:
-
-```text
-claude-code-watermark-check
-```
-
-Suggested short description:
+Short share text:
 
 ```text
-Local health check for Claude Code prompt-watermark indicators in logs and binaries.
+Local-only health check for Claude Code prompt-watermark indicators in logs and binaries:
+https://github.com/brutoshi/claude-code-watermark-check
 ```
 
-Good places to share after publishing:
+When asking for community results, request sanitized JSON, not raw logs:
+
+```text
+ccwatermark --json
+```
+
+Good places to share:
 
 - the original r/ClaudeCode discussion thread;
 - the related r/ClaudeAI discussion thread;
@@ -255,4 +305,3 @@ Good places to share after publishing:
   https://code.claude.com/docs/en/env-vars
 - Anthropic LLM gateway documentation:
   https://code.claude.com/docs/en/llm-gateway
-
