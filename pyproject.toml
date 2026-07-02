@@ -14,6 +14,13 @@ dependencies = [
 [project.scripts]
 ccwatermark = "ccwatermark.cli:main"
 
+[build-system]
+requires = ["hatchling>=1.28.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ccwatermark"]
+
 [dependency-groups]
 dev = [
     "basedpyright>=1.38.0",
